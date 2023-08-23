@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const j = [3,-2,3,10,12,-14,-8];
+        const pos=[];
+        const men=[];
+        let acuPositivos = 0;
+        let acuNegativos = 0;
+        let cont = 0;
+
+        // acuPositivos = j[0] + j[2] + j[3] + j[4];
+        // acuNegativos = j[1] + j[5] + j[6];
+        
+
+        // no esta el for
+        for (let i = 0; i < j.length; i++) {
+            if(j[i] < 0){
+                men.push(j[i]);
+                acuNegativos += j[i];
+            }else{
+                if(j[i]>3){
+                    cont ++
+                }
+                pos.push(j[i]);
+                acuPositivos += j[i]
+            }
+        }
+        console.log(pos.length + " numeros positivos");
+        console.log(men.length + " numeros negativos");
+        console.log(acuPositivos);
+        console.log(acuNegativos);
+        console.log(cont + " numeros mayores a 3");
+
+    </script>
+</body>
+</html>

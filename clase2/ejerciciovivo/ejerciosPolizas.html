@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [
+            {poliza:123,patente:'AA345FD',cantidad_cuotas:12,pagadas:[1,2,3,4]},
+            {poliza:124,patente:'AA500RR',cantidad_cuotas:6,pagadas:[1,2,3,4]},
+            {poliza:125,patente:'AA200AA',cantidad_cuotas:12,pagadas:[1,2,3,4,5,6,7,8,9,10,11,12]},
+            {poliza:126,patente:'AA300SH',cantidad_cuotas:8,pagadas:[1,2]} 
+        ]
+
+        /* Solucion en clase por un alumno
+        const res = []
+        for(let objs = 0 ; objs < arr.length; objs++){
+            let objAux = {}
+            let adeudadas = []
+            for(let i= 0; i<arr[objs]['cantidad_cuotas'] ; i++){
+
+                if(arr[objs]['pagadas'][i] !== (i + 1)){
+                    adeudadas.push(i + 1)
+                }
+            }
+            objAux['poliza'] = arr[objs]['poliza']
+            objAux['patente'] = arr[objs]['patente']
+            objAux['cantidad_cuotas'] = arr[objs]['cantidad_cuotas']
+            objAux['adeudadas'] = adeudadas
+
+            res.push(objAux)
+        }
+        console.log(res)
+        */
+        
+        // Otra solucion
+        const polizas = [{poliza:123,patente:'AA345FD',cantidad_cuotas:12,pagadas:[1,2,3,4]},
+                        {poliza:124,patente:'AA500RR',cantidad_cuotas:6,pagadas:[1,2,3,4]},
+                        {poliza:125,patente:'AA200AA',cantidad_cuotas:12,pagadas:[1,2,3,4,5,6,7,8,9,10,11,12]},
+                        {poliza:126,patente:'AA300SH',cantidad_cuotas:8,pagadas:[1,2]} ];
+
+
+        let polizasConDeudas = [];
+
+        for(let i=0; i < polizas.length; i++) {
+            const cuotasImpagas = [];
+            for(let j= polizas[i].pagadas.length; j < polizas[i].cantidad_cuotas; j++ ) {
+                cuotasImpagas.push(j+1);
+            }
+            polizasConDeudas.push(polizas[i]);
+            polizasConDeudas[i].cuotasImpagas = cuotasImpagas;
+        }
+        console.log(polizasConDeudas);
+
+        
+    </script>
+</body>
+</html>

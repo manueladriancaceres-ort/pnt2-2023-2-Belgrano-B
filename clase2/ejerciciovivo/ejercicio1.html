@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const listaNumeros = [3, 6, -4, 8, 10, -15, 30, 0, -12, 20]
+
+        const resObj = {
+            resultados: 0,
+            cantPositivos: 0,
+            cantNegativos: 0,
+            totalPositivos: 0,
+            totalNegativos: 0,
+            totalMayoresOcho: 0
+        }
+
+        for (let i = 0; i < listaNumeros.length; i++) {
+            resObj['resultados'] += listaNumeros[i]
+            if (listaNumeros[i] >= 0) {
+                resObj['cantPositivos']++
+                resObj['totalPositivos'] += listaNumeros[i]
+                if (listaNumeros[i] > 8) {
+                    resObj['totalMayoresOcho'] += listaNumeros[i]
+                }
+            } else {
+                resObj['cantNegativos']++
+                resObj['totalNegativos'] += listaNumeros[i]
+            }
+        }
+
+        console.log(resObj)
+
+
+    </script>
+</body>
+
+</html>

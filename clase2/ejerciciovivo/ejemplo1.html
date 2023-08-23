@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cliente = {
+            id: 1000,
+            nombre: 'Carlos',
+            telefono: 234535555,
+            familiar: {parentezco:'Tio'},
+            obtenerIdYNombre: function(mensaje) {
+                return mensaje + " " + this.id + " " +this.nombre + ' familiar ' + this.familiar.parentezco;
+            }
+        }
+        console.log(cliente);
+        console.log(cliente.nombre);
+
+        let nombreVariable = "nombre";
+        console.log(cliente[nombreVariable]);
+
+        cliente.direccion = "Sarmiento 123";
+        console.log(cliente);
+
+        console.log(cliente.obtenerIdYNombre("Este es el resultado"));
+
+        const otroPunteroACliente = cliente;
+        console.log(otroPunteroACliente);
+        otroPunteroACliente.id = 300;
+        console.log(cliente);
+
+        
+
+    </script>
+</body>
+</html>

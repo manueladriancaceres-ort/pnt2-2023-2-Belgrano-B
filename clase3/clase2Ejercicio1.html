@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function procesar(JSONDebackend) {
+        const procesado = []
+            // proceso el JSON   lista =   map 
+            return procesado;
+    }
+
+    class ProcesarFacturas {
+        constructor() {
+
+        }
+        procesar( JSONDebackend ) {
+            const lista = []
+            // proceso el JSON   lista =   map 
+            return 
+        }
+    }
+
+
+    class ComprobanteFactura {
+        constructor(id,fecha,importe,items) {
+            this.id = id;
+            this.fecha = fecha; // se puede usar Date()
+            this.importe = importe
+            this.items = items
+        }
+        verFactura = () => this.id;   
+        verItems = () => this.items; 
+        calcularPrecioItem = (item) => item.precioUnitario * item.cantidad;
+        calcularTotal = () => {
+            let nTotal = 0;
+            for (let index = 0; index < this.items.length; index++) {
+                nTotal += this.calcularPrecioItem(this.items[index])
+                // (this.items[index].cantidad*this.items[index].precioUnitario)                
+            }
+            return nTotal;
+        }
+    }
+
+    const items = [ { cantidad: 2, descripcion: 'Producto 1', precioUnitario: 10 },
+  { cantidad: 3, descripcion: 'Producto 2', precioUnitario: 15 },
+  { cantidad: 1, descripcion: 'Producto 3', precioUnitario: 20 } ];
+
+    const comprobante = new ComprobanteFactura(10,'17/01/2020',1000,items);
+
+    console.log(comprobante.verFactura());
+    console.log(comprobante.verItems());
+    console.log("El total es " + comprobante.calcularTotal());
+</script>
+</html>

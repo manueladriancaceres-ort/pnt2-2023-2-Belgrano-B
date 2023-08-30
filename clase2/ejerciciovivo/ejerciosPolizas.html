@@ -14,7 +14,7 @@
             {poliza:126,patente:'AA300SH',cantidad_cuotas:8,pagadas:[1,2]} 
         ]
 
-        /* Solucion en clase por un alumno
+        /* Solucion en clase por un alumno (Miguel)
         const res = []
         for(let objs = 0 ; objs < arr.length; objs++){
             let objAux = {}
@@ -43,16 +43,23 @@
 
 
         let polizasConDeudas = [];
-
         for(let i=0; i < polizas.length; i++) {
-            const cuotasImpagas = [];
-            for(let j= polizas[i].pagadas.length; j < polizas[i].cantidad_cuotas; j++ ) {
-                cuotasImpagas.push(j+1);
-            }
             polizasConDeudas.push(polizas[i]);
-            polizasConDeudas[i].cuotasImpagas = cuotasImpagas;
+            polizasConDeudas[i].cuotasImpagas = cuotasImpagas;  // calcularCuotasImpagas(polizas[i])
         }
         console.log(polizasConDeudas);
+
+	
+	/*
+	function calcularCuotasImpagas(poliza) {
+            const cuotasImpagas = [];
+            for(let j= poliza.pagadas.length; j < poliza.cantidad_cuotas; j++ ) {
+                cuotasImpagas.push(j+1);
+            }
+	    return cuotasImpagas;	
+	}
+	*/
+
 
         
     </script>

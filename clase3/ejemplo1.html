@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // break hasta 21:23
+    const lista = [3,5,6,-9,0,-5,10];
+    lista.forEach(e => console.log(e));
+    const productos = [{id:1,desc:'Silla'},{id:2,desc:'Heladera'},{id:3,desc:'Mesa'}];
+    productos.forEach(p => console.log(p.desc))
+    console.log(lista.map(e => e + 10));
+    //const fCambio = p => { return { id: p.id, desc: p.desc, imp: 0   }  } ;
+    console.log(productos.map(p => { return { id: p.id, desc: p.desc, imp: 0   }  })); // fCambio
+
+    const multiplicados = lista.map(i => i * 5);
+    console.log(multiplicados);
+
+    const nlista = [100,120,300,230,320];
+        const impuestasos = nlista.map(e => e * 1.21)
+        console.log(impuestasos)
+
+    const lista2 = [{id:100,descripcion:"prov1",precio:1000},{id:102,descripcion:"prov2",precio:1300}]    
+    // console.log(lista2.map(e => e.precio * 1.21) // devuelve una lista de importes
+
+    const notasMasCaras = lista2.map(nota => {
+      const precioConIva = nota.precio * 1.21;
+        return {
+            ...nota,
+            precio: precioConIva
+        }
+    })
+    console.log(notasMasCaras);
+
+    console.log('Mayores a 5: ' + lista.filter(n => n> 5));
+    console.log('Id mayores a 1: ' + productos.filter(p => p.id > 1));
+    
+    const devolverLista = (lista, numero) =>{
+            return lista.filter(num => num < numero)
+    }
+
+    console.log(devolverLista(lista, 5))
+
+    const NCinferiores = (lista,numero) =>{
+        return lista.filter(nc => nc.precio < numero);
+    }
+
+    const ncs = [{id:100,descripcion:"prov1",precio:1000},
+        {id:102,descripcion:"prov2",precio:1300},
+        {id:103,descripcion:"prov3",precio:600}];
+
+    console.log(NCinferiores(ncs,1000));
+
+
+    console.log(lista.reduce( (a,c) => a + c, 0) );
+
+    const slista = [ 4,3,-2,5,8,-12,10];
+    console.log(slista.reduce((a,c)=>a+c,100));
+
+    const recibos = [
+        {numero: 1000, importe: 1500},
+        {numero: 1001, importe: 2300},
+        {numero: 1002, importe: 2100}
+    ];
+
+    console.log(recibos.reduce((a,c) => a + c.importe, 0));
+
+    const listaMenorAMayor = [...lista];
+    console.log(listaMenorAMayor.sort((a,b) => a-b));
+    const listaMayorAMenor = [...lista];
+    console.log(listaMayorAMenor.sort((a,b)=>b-a));
+
+    const nombres = ['Juan','Alex','Maria', 'Marta'];
+    console.log(nombres.sort((a,b) => a.localeCompare(b)));
+    console.log(nombres.sort((a,b) => b.localeCompare(a)));
+
+    preciosSinIva = [2300,2500,5000,10000,1300]
+    console.log(preciosSinIva.map(precio=>precio*1.21).filter(precio=>precio > 3000).reduce((a,c)=>a+c));
+
+
+
+</script>
+</html>

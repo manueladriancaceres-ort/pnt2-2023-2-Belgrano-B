@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ComprobanteFactura {
+            constructor(id,fecha,items) {
+                this.id = id;
+                this.fecha = fecha;
+                this.items = items;
+            }
+            calcularTotal() {
+                let rta = 0;
+                for(let i=0; i< this.items.length;i++){
+                    rta += this.items[i].precio * this.items[i].cantidad;
+                }
+                return rta;
+            }
+        }
+        class Item {
+            constructor(cantidad,descripcion,precio) {
+                this.cantidad = cantidad;
+                this.descripcion = descripcion;
+                this.precio = precio;
+            }
+        }
+        const comprobanteFactura = 
+            new ComprobanteFactura(10,20230402,agregarItems());
+        
+        console.log(comprobanteFactura);
+
+        console.log(comprobanteFactura.calcularTotal());
+
+        function agregarItems() {
+            const items = [];
+            items.push(new Item(1,"Zapatilla",25000));
+            items.push(new Item(2,"Remera",3500));
+            return items;
+        }
+
+    </script>
+</body>
+</html>

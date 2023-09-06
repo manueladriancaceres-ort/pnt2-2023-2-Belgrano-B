@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <h2 style="color:green;font-size:50px">{{titulo}}</h2>
+        <li v-for="elemento in lista">
+            {{elemento.id}} {{ elemento.name }}
+        </li>
+        id: <input v-model="vehicle.id">
+        name: <input v-model="vehicle.name">
+        </br>
+        <button v-on:click="agregar">Add vehicle</button>
+        <h2 v-bind:style="{color:nColor,fontSize:nFontSize}">Titulo 1</h2>
+        <p v-if="ver">Algun texto oculto</p>
+        <p v-else="ver">Otro texto</p>
+        <p v-show="ver">Oculto con estilo</p>
+        {{ mensaje }}
+        {{ nColor }}
+    </div>
+    <script>
+        const { createApp } = Vue
+        const obj = createApp({
+            data() {
+                return {
+                    mensaje: 'Hola Vue!',
+                    nColor: 'blue',
+                    nFontSize:'80px',
+                    ver: false,
+                    lista:[{id:100,name:'car'},{id:500,name:'motorbike'}],
+                    titulo: 'Vehicles',
+                    vehicle:{ id:0, name:'' }
+                }
+            },
+            methods: {
+                agregar() {
+                    this.lista.push({...this.vehicle})
+                    this.vehicle = { id:0, name:'' }
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

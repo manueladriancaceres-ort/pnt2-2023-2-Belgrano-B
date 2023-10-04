@@ -20,6 +20,8 @@ export default {
     methods: {
         agregarCliente() {
             this.$emit('agregar',this.cliente)
+            // llamado al backend
+            // llamar a un metodo post , en enviar cliente
         }
     }
 }

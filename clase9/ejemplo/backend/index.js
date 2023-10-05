@@ -17,10 +17,22 @@ app.post('/lista', (req,res) =>{
     res.status(200).json({message:'ok'})
 })
 app.delete('/lista/:id', (req,res) =>{
-    console.log(req.params.id);
-    console.log(lista.indexOf(e=>e.id==req.params.id));
+    // console.log(req.params.id);
+    // lista = lista.filter(e=>e.id!=req.params.id)
+    const index = lista.findIndex(e=>e.id==req.params.id);
+    lista.pop(index)
     res.status(200).json({message:'ok'})
 })
+app.put('/lista/:id', (req,res) =>{
+    //console.log(req.body);
+    //console.log(req.params.id);
+    const index = lista.findIndex(e=>e.id==req.params.id);
+    lista[index]=req.body
+    res.status(200).json({message:'ok'})
+    // falta manejo de errores
+    // res.status(404).json({message:'error'})
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

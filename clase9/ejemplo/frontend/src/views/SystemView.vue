@@ -10,6 +10,9 @@ export default {
         errorMessage: ''
     }
   },
+  mounted() {
+    this.loadData()
+  },
   methods: {
     async loadData() {
       try {
@@ -32,6 +35,16 @@ export default {
     async deleteData(id) {
       try {
         await axios.delete("http://localhost:3000/lista/"+id)
+        await this.loadData()
+      } catch(e) {
+        console.log(e);
+        this.errorMessage = "Se produjo un error"
+      }
+    },
+    async putData(id) {
+      try {
+        await axios.put("http://localhost:3000/lista/"+id,this.person)
+        await this.loadData()
       } catch(e) {
         console.log(e);
         this.errorMessage = "Se produjo un error"
@@ -49,6 +62,7 @@ export default {
         <ion-list v-for="e in lista" :key="e.id">
             {{ e.id }} {{ e.name }}
             <ion-button @click="deleteData(e.id)">Delete name from the list</ion-button>
+            <ion-button @click="putData(e.id)">Replace from the list</ion-button>
         </ion-list>
         <ion-input v-model="person.id" label="id" placeholder="input an id"></ion-input>
         <ion-input v-model="person.name" label="Name" placeholder="input a name"></ion-input>

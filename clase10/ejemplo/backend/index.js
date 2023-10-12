@@ -18,7 +18,7 @@ const users = [
 ]
 
 app.post('/login',(req,res) =>{
-  //console.log(req.body);
+  console.log(req.body);
   if(req.body) {
     const user = req.body;
     //console.log(user);
@@ -38,6 +38,7 @@ app.post('/login',(req,res) =>{
 
 const lista = [{id:100,name:'Charly'},{id:200,name:'Jhon'}]
 app.get('/lista', (req, res) => {
+    console.log(req.headers['authorization']);
     res.json(lista)
 })
 app.post('/lista', (req,res) =>{
